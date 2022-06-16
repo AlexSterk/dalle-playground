@@ -12,7 +12,7 @@ import "./App.css";
 import BackendUrlInput from "./BackendUrlInput";
 import LoadingSpinner from "./LoadingSpinner";
 
-const useStyles = () => ({
+const useStyles = theme => ({
     root: {
         display: 'flex',
         width: '100%',
@@ -31,6 +31,11 @@ const useStyles = () => ({
         alignItems: 'flex-start',
         justifyContent: 'center',
         marginTop: '20px',
+        [theme.breakpoints.down('sm')]: {
+            alignItems: 'center',
+            flexDirection: 'column',
+            justifyContent: 'flex-start'
+        }
     },
     settingsSection: {
         display: 'flex',

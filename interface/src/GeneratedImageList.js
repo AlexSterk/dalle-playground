@@ -2,10 +2,15 @@ import React from 'react';
 import { Grid } from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 
-const useStyles = () => ({
+const useStyles = theme => ({
     generatedImg: {
         borderRadius: '8px',
     },
+    imageGrid: {
+        [theme.breakpoints.down('sm')]: {
+            justifyContent: 'center'
+        }
+    }
 });
 
 const GeneratedImageList = ({ classes, generatedImages, promptText }) => {
@@ -25,7 +30,7 @@ const GeneratedImageList = ({ classes, generatedImages, promptText }) => {
 
 
     return (
-        <Grid container alignItems="center" spacing={3}>
+        <Grid container className={classes.imageGrid} alignItems="center" spacing={3}>
             {generatedImages.map((generatedImg, index) => {
                 return (
                     <Grid item key={index}>
